@@ -88,8 +88,8 @@ export default function Home() {
               <button
                 onClick={() => changeLanguage("en")}
                 className={`px-2 py-0.5 rounded-full transition-all duration-300 ${lang === "en"
-                    ? "bg-blue-600/20 text-blue-300 border border-blue-500/30"
-                    : "text-zinc-500 hover:text-zinc-300"
+                  ? "bg-blue-600/20 text-blue-300 border border-blue-500/30"
+                  : "text-zinc-500 hover:text-zinc-300"
                   }`}
               >
                 EN
@@ -97,8 +97,8 @@ export default function Home() {
               <button
                 onClick={() => changeLanguage("fr")}
                 className={`px-2 py-0.5 rounded-full transition-all duration-300 ${lang === "fr"
-                    ? "bg-blue-600/20 text-blue-300 border border-blue-500/30"
-                    : "text-zinc-500 hover:text-zinc-300"
+                  ? "bg-blue-600/20 text-blue-300 border border-blue-500/30"
+                  : "text-zinc-500 hover:text-zinc-300"
                   }`}
               >
                 FR
@@ -189,7 +189,7 @@ export default function Home() {
 
                 <div className="text-center">
                   <Link href="/games/smash-dice" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-                    Play Smash Dice
+                    {t("game1PlayButton")}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                   </Link>
                 </div>

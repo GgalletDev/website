@@ -20,6 +20,7 @@ export interface TranslationDict {
   gameFutureTag: string;
   game1Title: string;
   game1Desc: string;
+  game1PlayButton: string;
   game1Slogan: string;
   game1Tech: string;
   game1Features: string;
@@ -70,6 +71,7 @@ export const translations: Record<"en" | "fr", TranslationDict> = {
     game1Title: "Smash Dice",
     game1Slogan: "Smash the dice, dominate the cosmos.",
     game1Desc: "A fast-paced arcade action and reflex game built solo with Flutter & Flame (Forge2D physics). In the quiet vacuum of a mysterious nebula, smash numbered dice to reduce their value to zero before they escape. Chain combos, unlock achievements, and dominate the global Firebase Hall of Fame.",
+    game1PlayButton: "PLAY SMASH DICE",
     game1Tech: "Flutter + Flame Engine (Forge2D Physics)",
     game1Features: "Combos & Multipliers, Firebase Hall of Fame, Achievements, Rewarded Extra Lives",
     mediaVideoPlaceholder: "Gameplay video stream // Transmitting soon",
@@ -124,6 +126,7 @@ export const translations: Record<"en" | "fr", TranslationDict> = {
     game1Title: "Smash Dice",
     game1Slogan: "Smashez les dés, dominez le cosmos.",
     game1Desc: "Un jeu d'arcade d'action rapide et de réflexes développé en solo avec Flutter & Flame (moteur physique Forge2D). Dans le vide d'une nébuleuse mystérieuse, smashez les dés numérotés pour réduire leur valeur à zéro avant qu'ils ne s'échappent. Enchaînez les combos, débloquez des succès et dominez le Hall of Fame mondial Firebase.",
+    game1PlayButton: "JOUER À SMASH DICE",
     game1Tech: "Flutter + Flame Engine (Physique Forge2D)",
     game1Features: "Système de Combos & Multiplicateurs, Classement Firebase mondial, Succès, Réanimation",
     mediaVideoPlaceholder: "Flux vidéo de gameplay // Bientôt disponible",
