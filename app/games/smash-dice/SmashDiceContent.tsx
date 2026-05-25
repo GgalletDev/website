@@ -1,10 +1,22 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export default function SmashDiceContent() {
   const { t } = useTranslation();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const screenshots = [
+    '/images/smash-dice/Screenshot_main_menu.jpg',
+    '/images/smash-dice/Screenshot_global_leaderboard.jpg',
+    '/images/smash-dice/Screenshot_personal_scores.jpg',
+    '/images/smash-dice/Screenshot_bonus_life.png',
+    '/images/smash-dice/Screenshot_malus.png',
+    '/images/smash-dice/Screenshot_malus_activated.png',
+  ];
+
 
   return (
     <div className="min-h-screen bg-[#03000a] text-zinc-100 flex flex-col font-sans relative overflow-hidden">
@@ -22,19 +34,113 @@ export default function SmashDiceContent() {
 
         {/* Media section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Video placeholder */}
-          <div className="relative aspect-video rounded-xl bg-zinc-950/80 border border-white/[0.06] overflow-hidden flex items-center justify-center text-center p-6">
-            <div className="absolute inset-0 crt-scanlines pointer-events-none opacity-30" />
-            <span className="text-zinc-500 text-sm">Video placeholder (MP4/WebM)</span>
+          {/* Video */}
+          <div className="relative aspect-[9/17] rounded-xl bg-zinc-950/80 border border-white/[0.06] overflow-hidden flex items-center justify-center">
+            <video className="w-full h-full object-cover" src="/images/smash-dice/SmashDice_Teaser.mp4" controls />
           </div>
-          {/* Screenshots grid */}
+          {/* Screenshots */}
           <div className="grid grid-cols-3 gap-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="relative aspect-video rounded-lg bg-zinc-950/40 border border-dashed border-white/[0.06] flex items-center justify-center">
-                <span className="text-zinc-600 text-xs">Screenshot {i}</span>
-              </div>
+            {screenshots.map((src, i) => (
+              <button
+                key={i}
+                type="button"
+                className="focus:outline-none"
+                onClick={() => setSelectedIndex(i)}
+              >
+                <Image
+                  src={src}
+                  alt={`Screenshot ${i + 1}`}
+                  width={200}
+                  height={112}
+                  className="rounded-lg bg-zinc-950/40 border border-dashed border-white/[0.06]"
+                />
+              </button>
             ))}
           </div>
+          {selectedIndex !== null && (
+            <div
+              className="fixed inset-0 bg-black/85 flex items-center justify-center z-50 p-4 sm:p-6"
+              onClick={() => setSelectedIndex(null)}
+            >
+              {/* Close */}
+              <button
+                className="absolute top-4 right-4 text-white text-3xl z-20"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedIndex(null);
+                }}
+              >
+                ✕
+              </button>
+
+              {/* Previous */}
+              <button
+                className="
+        absolute left-2 sm:left-6
+        text-white text-4xl
+        bg-black/40 hover:bg-black/60
+        rounded-full
+        w-12 h-12
+        flex items-center justify-center
+        z-20
+      "
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedIndex(
+                    (selectedIndex - 1 + screenshots.length) % screenshots.length
+                  );
+                }}
+              >
+                ‹
+              </button>
+
+              {/* Next */}
+              <button
+                className="
+        absolute right-2 sm:right-6
+        text-white text-4xl
+        bg-black/40 hover:bg-black/60
+        rounded-full
+        w-12 h-12
+        flex items-center justify-center
+        z-20
+      "
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedIndex(
+                    (selectedIndex + 1) % screenshots.length
+                  );
+                }}
+              >
+                ›
+              </button>
+
+              {/* Image */}
+              <div
+                className="relative w-full flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={screenshots[selectedIndex]}
+                  alt={`Screenshot ${selectedIndex + 1}`}
+                  width={1600}
+                  height={900}
+                  className="
+          rounded-xl
+          border border-white/10
+          shadow-2xl
+          w-auto
+          h-auto
+          max-w-[95vw]
+          sm:max-w-[85vw]
+          lg:max-w-[1100px]
+          max-h-[85vh]
+          object-contain
+        "
+                />
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Description */}
@@ -53,11 +159,16 @@ export default function SmashDiceContent() {
         </section>
 
         {/* Data‑usage section */}
-        <section>
-          <h2 className="font-display text-xl text-white mb-2">Data Usage</h2>
-          <p className="text-zinc-400 text-sm max-w-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus eget urna facilisis placerat. Nulla facilisi. Integer at turpis vitae neque viverra venenatis.
-          </p>
+        <section className="flex space-x-4">
+          <Link href="/games/smash-dice/privacy" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            Privacy Policy
+          </Link>
+          <Link href="/games/smash-dice/terms" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            Terms of Service
+          </Link>
+          <Link href="/games/smash-dice/contact" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            Contact
+          </Link>
         </section>
       </main>
     </div>
