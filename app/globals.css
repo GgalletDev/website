@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #03000a;
@@ -10,7 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-manrope);
   --font-display: var(--font-space-grotesk);
-  
+
   --animate-float-slow: float-slow 12s ease-in-out infinite;
   --animate-float-medium: float-medium 8s ease-in-out infinite;
   --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -21,36 +22,47 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 0 100%;
   }
 }
 
 @keyframes float-slow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0px, 0px) scale(1);
   }
+
   33% {
     transform: translate(30px, -50px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.95);
   }
 }
 
 @keyframes float-medium {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0px, 0px) scale(1);
   }
+
   50% {
     transform: translate(-40px, 40px) scale(1.15);
   }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
   }
+
   50% {
     opacity: 0.75;
   }
@@ -74,10 +86,7 @@ body {
 
 /* CRT Arcade Scanline Utility */
 .crt-scanlines {
-  background: linear-gradient(
-    rgba(13, 2, 33, 0) 50%, 
-    rgba(0, 0, 0, 0.35) 50%
-  );
+  background: linear-gradient(rgba(13, 2, 33, 0) 50%,
+      rgba(0, 0, 0, 0.35) 50%);
   background-size: 100% 4px;
 }
-

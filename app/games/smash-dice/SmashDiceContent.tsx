@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslation } from '@/hooks/useTranslation';
+import { translations, TranslationDict } from "@/lib/translations";
 
-export default function SmashDiceContent() {
-  const { t } = useTranslation();
+interface SmashDiceContentProps {
+  locale: "en" | "fr";
+}
+
+export default function SmashDiceContent({ locale }: SmashDiceContentProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const screenshots = [
@@ -17,6 +20,14 @@ export default function SmashDiceContent() {
     '/images/smash-dice/Screenshot_malus_activated.png',
   ];
 
+  const dict = translations[locale] || translations.en;
+  const t = (key: keyof TranslationDict): string => {
+    const value = dict[key];
+    if (Array.isArray(value)) {
+      return value.join(", ");
+    }
+    return value || (translations.en[key] as string) || "";
+  };
 
   return (
     <div className="min-h-screen bg-[#03000a] text-zinc-100 flex flex-col font-sans relative overflow-hidden">
@@ -29,7 +40,9 @@ export default function SmashDiceContent() {
         {/* Header with back link */}
         <header className="flex items-center justify-between border-b border-white/[0.04] pb-4">
           <h1 className="font-display text-3xl text-white uppercase">{t('game1Title')}</h1>
-          <Link href="/" className="text-sm text-zinc-400 hover:text-blue-300 transition-colors">← Back to Home</Link>
+          <Link href={`/${locale}`} className="text-sm text-zinc-400 hover:text-blue-300 transition-colors">
+            ← {locale === 'fr' ? 'Retour à l\'accueil' : 'Back to Home'}
+          </Link>
         </header>
 
         {/* Media section */}
@@ -160,14 +173,14 @@ export default function SmashDiceContent() {
 
         {/* Data‑usage section */}
         <section className="flex space-x-4">
-          <Link href="/games/smash-dice/privacy" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            Privacy Policy
+          <Link href={`/${locale}/games/smash-dice/privacy`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
           </Link>
-          <Link href="/games/smash-dice/terms" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            Terms of Service
+          <Link href={`/${locale}/games/smash-dice/terms`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            {locale === 'fr' ? 'Conditions d\'utilisation' : 'Terms of Service'}
           </Link>
-          <Link href="/games/smash-dice/contact" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            Contact
+          <Link href={`/${locale}/games/smash-dice/contact`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            {locale === 'fr' ? 'Contact' : 'Contact'}
           </Link>
         </section>
       </main>
