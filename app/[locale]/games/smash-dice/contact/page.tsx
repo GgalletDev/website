@@ -28,12 +28,54 @@ export default async function ContactPage({ params }: PageProps) {
           ← {isFr ? 'Retour au jeu' : 'Back to Game'}
         </Link>
       </header>
-      <section className="max-w-2xl w-full">
-        <p className="text-zinc-300">
+      <section className="max-w-2xl w-full space-y-6">
+        <p className="text-zinc-300 leading-relaxed">
           {isFr
-            ? '[Contenu stub] Cette page contiendra les coordonnées ou un formulaire de contact pour le jeu Smash Dice.'
-            : '[Stub content] This page will contain contact details or a form for the Smash Dice game.'}
+            ? "Pour toute question, demande de support ou problème concernant Smash Dice, vous pouvez contacter GG Games Labs par email."
+            : "For any question, support request, or issue related to Smash Dice, you can contact GG Games Labs by email."}
         </p>
+
+        <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-sm">
+          <div className="space-y-3">
+            <div>
+              <p className="text-sm uppercase tracking-wide text-zinc-500">
+                {isFr ? "Studio" : "Studio"}
+              </p>
+              <p className="text-white font-medium">GG Games Labs</p>
+            </div>
+
+            <div>
+              <p className="text-sm uppercase tracking-wide text-zinc-500">
+                Email
+              </p>
+
+              <a
+                href="mailto:contact@gggameslabs.com"
+                className="text-blue-300 hover:text-blue-200 transition-colors"
+              >
+                contact@gggameslabs.com
+              </a>
+            </div>
+
+            <div>
+              <p className="text-sm uppercase tracking-wide text-zinc-500">
+                {isFr ? "Support" : "Support"}
+              </p>
+
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                {isFr
+                  ? "Nous faisons de notre mieux pour répondre dans un délai raisonnable."
+                  : "We do our best to reply within a reasonable timeframe."}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-sm text-zinc-500">
+          {isFr
+            ? "Cette page concerne uniquement le jeu Smash Dice."
+            : "This page is dedicated to the Smash Dice game only."}
+        </div>
       </section>
     </main>
   );
