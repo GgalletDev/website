@@ -95,7 +95,7 @@ export default function LandingPageClient({ locale }: LandingPageClientProps) {
           {/* Navigation & Language Select */}
           <div className="flex items-center gap-6 sm:gap-8">
             <nav className="hidden md:flex items-center gap-6 text-xs font-mono uppercase tracking-widest text-zinc-500">
-              <a href="#games" className="hover:text-blue-400 transition-colors">{t("navGames")}</a>
+              {/* <a href="#games" className="hover:text-blue-400 transition-colors">{t("navGames")}</a> */}
               <a href="#vision" className="hover:text-blue-400 transition-colors">{t("navVision")}</a>
               <a href="#contact" className="hover:text-blue-400 transition-colors">{t("navContact")}</a>
             </nav>
