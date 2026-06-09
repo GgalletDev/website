@@ -172,15 +172,18 @@ export default function SmashDiceContent({ locale }: SmashDiceContentProps) {
         </section>
 
         {/* Data‑usage section */}
-        <section className="flex space-x-4">
+        <section className="flex flex-wrap gap-4">
           <Link href={`/${locale}/games/smash-dice/privacy`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
+            {t('privacyPolicy')}
           </Link>
           <Link href={`/${locale}/games/smash-dice/terms`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            {locale === 'fr' ? 'Conditions d\'utilisation' : 'Terms of Service'}
+            {t('termsOfService')}
           </Link>
           <Link href={`/${locale}/games/smash-dice/contact`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
-            {locale === 'fr' ? 'Contact' : 'Contact'}
+            {t('contact')}
+          </Link>
+          <Link href={`/${locale}/games/smash-dice/delete-data`} className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-950/30 border border-blue-500/40 text-blue-300 hover:bg-zinc-950/50 transition-colors backdrop-blur-sm">
+            {t('deleteData')}
           </Link>
         </section>
       </main>

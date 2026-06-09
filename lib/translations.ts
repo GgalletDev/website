@@ -44,6 +44,23 @@ export interface TranslationDict {
   philosophyAuthenticDesc: string;
   footerCopyright: string;
   footerDesigned: string;
+  privacyPolicy: string;
+  termsOfService: string;
+  contact: string;
+  deleteData: string;
+  backToGame: string;
+  deletePageTitle: string;
+  deletePageDesc: string;
+  deletePageStepsTitle: string;
+  deletePageStep1: string;
+  deletePageStep2: string;
+  deletePageStep3: string;
+  deletePageStep4: string;
+  deletePageWarningTitle: string;
+  deletePageWarningDesc: string;
+  deletePageInGameView: string;
+  deletePageScreenshot: string;
+  deletePageScreenshotDesc: string;
   bootSteps: string[];
 }
 
@@ -94,6 +111,23 @@ export const translations: Record<"en" | "fr", TranslationDict> = {
     philosophyAuthenticDesc: "Creating meaningful projects with personality, simplicity and genuine passion for game development.",
     footerCopyright: "© {year} GG Games Labs. All rights reserved.",
     footerDesigned: "Designed solo. Powered by passion.",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    contact: "Contact",
+    deleteData: "Delete my data and account",
+    backToGame: "Back to Game",
+    deletePageTitle: "Delete My Data and Account",
+    deletePageDesc: "You can request the deletion of your account and all associated gameplay data at any time. This process is fully automated and can be done directly from within the Smash Dice application.",
+    deletePageStepsTitle: "Steps to follow:",
+    deletePageStep1: "Open the Smash Dice game on your device.",
+    deletePageStep2: "Navigate to the Settings screen (gear icon on the main menu).",
+    deletePageStep3: "Tap on the \"Delete account & data\" button.",
+    deletePageStep4: "Confirm your action. Your username, play history, and scores will be immediately and permanently deleted from the leaderboard.",
+    deletePageWarningTitle: "Warning:",
+    deletePageWarningDesc: "This action is irreversible. Once deleted, your username and scores in the Hall of Fame cannot be recovered.",
+    deletePageInGameView: "In-game view:",
+    deletePageScreenshot: "Screenshot",
+    deletePageScreenshotDesc: "To be replaced with the deletion screen",
     bootSteps: [
       "Initializing rendering engine...",
       "Compiling shaders & blueprints...",
@@ -149,6 +183,23 @@ export const translations: Record<"en" | "fr", TranslationDict> = {
     philosophyAuthenticDesc: "Créer des projets significatifs avec personnalité, simplicité et passion sincère pour le développement de jeux.",
     footerCopyright: "© {year} GG Games Labs. Tous droits réservés.",
     footerDesigned: "Conçu en solo. Propulsé par la passion.",
+    privacyPolicy: "Politique de confidentialité",
+    termsOfService: "Conditions d'utilisation",
+    contact: "Contact",
+    deleteData: "Supprimer mon compte et mes données",
+    backToGame: "Retour au jeu",
+    deletePageTitle: "Supprimer mon compte et mes données",
+    deletePageDesc: "Vous pouvez demander la suppression de votre compte et de toutes les données de jeu associées à tout moment. Ce processus est entièrement automatisé et s'effectue directement depuis l'application Smash Dice.",
+    deletePageStepsTitle: "Étapes à suivre :",
+    deletePageStep1: "Ouvrez le jeu Smash Dice sur votre appareil.",
+    deletePageStep2: "Accédez à l'écran des Paramètres (icône d'engrenage sur l'écran principal).",
+    deletePageStep3: "Appuyez sur le bouton \"Delete account & data\".",
+    deletePageStep4: "Confirmez votre action. Votre nom d'utilisateur, votre historique et vos scores seront immédiatement et définitivement supprimés du classement.",
+    deletePageWarningTitle: "Attention :",
+    deletePageWarningDesc: "Cette action est irréversible. Une fois le compte supprimé, votre nom d'utilisateur et vos scores dans le Hall of Fame ne pourront plus être récupérés.",
+    deletePageInGameView: "Aperçu dans le jeu :",
+    deletePageScreenshot: "Capture d'écran",
+    deletePageScreenshotDesc: "Sera remplacé par l'écran de suppression",
     bootSteps: [
       "Initialisation du moteur de rendu...",
       "Compilation des shaders & blueprints...",
